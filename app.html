@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ratio Math - app</title>
+<style>
+  :root { --accent:#9a6b00; --ink:#241b05; --paper:#faf6ea; --soft:#f3ead0; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:Georgia, "Times New Roman", serif; background:var(--paper); color:var(--ink); line-height:1.55; }
+  main { max-width:660px; margin:0 auto; }
+  .boundary { background:#fdeaea; border-left:6px solid #b03030; color:#5c1c1c; border-radius:6px; padding:1rem 1.1rem; }
+  .boundary strong { display:block; margin-bottom:.3rem; }
+  body { padding:2rem 1.2rem; }
+  h1 { font-size:1.8rem; color:var(--accent); }
+  .boundary { margin:1rem 0 1.4rem; }
+  .panel { background:var(--soft); border-left:5px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; margin-bottom:1.1rem; }
+  h2 { font-size:1.1rem; margin-bottom:.6rem; }
+  p.note { font-size:.9rem; margin-bottom:.4rem; }
+  label { display:block; font-size:.9rem; margin:.45rem 0 .1rem; }
+  input, select { width:100%; padding:.45rem .55rem; font-size:1rem; border:1px solid #e2d29c; border-radius:6px; background:#fff; color:var(--ink); }
+  .row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.6rem; }
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+  .out { margin-top:.7rem; font-size:.98rem; background:#fff; border:1px dashed #e2d29c; border-radius:6px; padding:.6rem .7rem; min-height:2.4rem; }
+  .out.err { border-color:#b03030; color:#8a1f1f; }
+  footer { margin-top:1.8rem; font-size:.85rem; color:#82703a; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Ratio Math</h1>
+  <div class="boundary">
+    <strong>Boundary: arithmetic only</strong>
+    This page simplifies a ratio, splits a total by a ratio, and finds a missing term, from the whole numbers you type. It does not say what ratio a recipe, mix or deal should use. Check that against its own instructions.
+  </div>
+
+  <div class="panel">
+    <h2>The simplest-form truth</h2>
+    <p class="note">Divide both sides by their greatest common divisor.</p>
+    <div class="row2">
+      <div><label for="s-a">First number</label><input id="s-a" type="number" step="1" value="12"></div>
+      <div><label for="s-b">Second number</label><input id="s-b" type="number" step="1" value="18"></div>
+    </div>
+    <div class="out" id="s-out"></div>
+  </div>
+
+  <div class="panel">
+    <h2>The split truth</h2>
+    <p class="note">Share a total by a ratio in whole units. The parts always add back to the total.</p>
+    <div class="row2">
+      <div><label for="t-t">Total</label><input id="t-t" type="number" step="1" value="100"></div>
+      <div></div>
+      <div><label for="t-a">First part</label><input id="t-a" type="number" step="1" value="3"></div>
+      <div><label for="t-b">Second part</label><input id="t-b" type="number" step="1" value="2"></div>
+    </div>
+    <div class="out" id="t-out"></div>
+  </div>
+
+  <div class="panel">
+    <h2>The missing-term truth</h2>
+    <p class="note">First number is to second number as third number is to x.</p>
+    <div class="row2">
+      <div><label for="f-a">First number</label><input id="f-a" type="number" step="1" value="2"></div>
+      <div><label for="f-b">Second number</label><input id="f-b" type="number" step="1" value="3"></div>
+      <div><label for="f-c">Third number</label><input id="f-c" type="number" step="1" value="10"></div>
+      <div></div>
+    </div>
+    <div class="out" id="f-out"></div>
+  </div>
+
+  <footer>Ratio Math is exact arithmetic over the numbers you enter. <a href="index.html">Why it exists</a>.</footer>
+</main>
+<script src="engine.js"></script>
+<script>
+  const num = (id) => Number(document.getElementById(id).value);
+  function show(id, fn) {
+    const out = document.getElementById(id);
+    try { out.textContent = fn(); out.classList.remove("err"); }
+    catch (e) { out.textContent = e.message; out.classList.add("err"); }
+  }
+  function recalc() {
+    show("s-out", () => simplestTruth(num("s-a"), num("s-b")));
+    show("t-out", () => splitTruth(num("t-t"), num("t-a"), num("t-b")));
+    show("f-out", () => fourthTruth(num("f-a"), num("f-b"), num("f-c")));
+  }
+  document.querySelectorAll("input, select").forEach((el) => {
+    el.addEventListener("input", recalc);
+    el.addEventListener("change", recalc);
+  });
+  recalc();
+</script>
+</body>
+</html>
