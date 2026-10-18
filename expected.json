@@ -1,0 +1,324 @@
+[
+ {
+  "fn": "simplestTruth",
+  "args": [
+   12,
+   18
+  ],
+  "expected": "12:18 simplifies to 2:3."
+ },
+ {
+  "fn": "simplestTruth",
+  "args": [
+   8,
+   15
+  ],
+  "expected": "8:15 is already in lowest terms."
+ },
+ {
+  "fn": "simplestTruth",
+  "args": [
+   5,
+   5
+  ],
+  "expected": "5:5 simplifies to 1:1."
+ },
+ {
+  "fn": "simplestTruth",
+  "args": [
+   1,
+   1
+  ],
+  "expected": "1:1 is already in lowest terms."
+ },
+ {
+  "fn": "simplestTruth",
+  "args": [
+   1000000,
+   250000
+  ],
+  "expected": "1000000:250000 simplifies to 4:1."
+ },
+ {
+  "fn": "simplestTruth",
+  "args": [
+   6,
+   3
+  ],
+  "expected": "6:3 simplifies to 2:1."
+ },
+ {
+  "fn": "simplestTruth",
+  "args": [
+   0,
+   4
+  ],
+  "expected": "ERR:first number must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "simplestTruth",
+  "args": [
+   4,
+   0
+  ],
+  "expected": "ERR:second number must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "simplestTruth",
+  "args": [
+   2.5,
+   5
+  ],
+  "expected": "ERR:first number must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "simplestTruth",
+  "args": [
+   5,
+   1000001
+  ],
+  "expected": "ERR:second number must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "simplestTruth",
+  "args": [
+   -3,
+   6
+  ],
+  "expected": "ERR:first number must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   100,
+   3,
+   2
+  ],
+  "expected": "Split 100 as 3:2: 60 and 40."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   10,
+   1,
+   2
+  ],
+  "expected": "Split 10 as 1:2: 3 and 7, rounded to whole units so they add to 10."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   10,
+   1,
+   1
+  ],
+  "expected": "Split 10 as 1:1: 5 and 5."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   1,
+   1,
+   1
+  ],
+  "expected": "Split 1 as 1:1: 1 and 0, rounded to whole units so they add to 1."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   1,
+   1,
+   2
+  ],
+  "expected": "Split 1 as 1:2: 0 and 1, rounded to whole units so they add to 1."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   7,
+   1,
+   1
+  ],
+  "expected": "Split 7 as 1:1: 4 and 3, rounded to whole units so they add to 7."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   100,
+   1,
+   3
+  ],
+  "expected": "Split 100 as 1:3: 25 and 75."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   1000000,
+   1000000,
+   1000000
+  ],
+  "expected": "Split 1000000 as 1000000:1000000: 500000 and 500000."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   5,
+   2,
+   1
+  ],
+  "expected": "Split 5 as 2:1: 3 and 2, rounded to whole units so they add to 5."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   0,
+   1,
+   1
+  ],
+  "expected": "ERR:total must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   10,
+   0,
+   1
+  ],
+  "expected": "ERR:first part must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   10,
+   1,
+   0
+  ],
+  "expected": "ERR:second part must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   1000001,
+   1,
+   1
+  ],
+  "expected": "ERR:total must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   10.5,
+   1,
+   1
+  ],
+  "expected": "ERR:total must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "fourthTruth",
+  "args": [
+   2,
+   3,
+   10
+  ],
+  "expected": "If 2:3 is the same as 10:x, then x is 15."
+ },
+ {
+  "fn": "fourthTruth",
+  "args": [
+   3,
+   1,
+   10
+  ],
+  "expected": "If 3:1 is the same as 10:x, then x is about 3.33."
+ },
+ {
+  "fn": "fourthTruth",
+  "args": [
+   4,
+   1,
+   6
+  ],
+  "expected": "If 4:1 is the same as 6:x, then x is 1.5."
+ },
+ {
+  "fn": "fourthTruth",
+  "args": [
+   8,
+   3,
+   1
+  ],
+  "expected": "If 8:3 is the same as 1:x, then x is about 0.38."
+ },
+ {
+  "fn": "fourthTruth",
+  "args": [
+   1,
+   1,
+   1
+  ],
+  "expected": "If 1:1 is the same as 1:x, then x is 1."
+ },
+ {
+  "fn": "fourthTruth",
+  "args": [
+   1000000,
+   1000000,
+   1000000
+  ],
+  "expected": "If 1000000:1000000 is the same as 1000000:x, then x is 1000000."
+ },
+ {
+  "fn": "fourthTruth",
+  "args": [
+   3,
+   2,
+   1
+  ],
+  "expected": "If 3:2 is the same as 1:x, then x is about 0.67."
+ },
+ {
+  "fn": "fourthTruth",
+  "args": [
+   0,
+   1,
+   1
+  ],
+  "expected": "ERR:first number must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "fourthTruth",
+  "args": [
+   1,
+   0,
+   1
+  ],
+  "expected": "ERR:second number must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "fourthTruth",
+  "args": [
+   1,
+   1,
+   0
+  ],
+  "expected": "ERR:third number must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "fourthTruth",
+  "args": [
+   1,
+   1,
+   1.5
+  ],
+  "expected": "ERR:third number must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "fourthTruth",
+  "args": [
+   1,
+   1000001,
+   1
+  ],
+  "expected": "ERR:second number must be a whole number from 1 to 1000000"
+ }
+]
